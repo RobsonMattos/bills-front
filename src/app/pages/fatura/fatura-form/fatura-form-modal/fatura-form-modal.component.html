@@ -1,0 +1,79 @@
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content card card-user" style="border: 1px; margin: 10px;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Lançamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" (click)="fecharModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body card-body">
+                <form [formGroup]="resourceForm" (submit)="submitForm()">
+                    <div class="row ">
+                        <div class="col-md-12 ">
+                            <bill-input [labelTexto]="'Categoria'" [required]=true>
+                                <select formControlName="categoria" class="form-control" id="categoria">
+                                    <option value="" disabled>Selecione categoria</option>
+                                    <option *ngFor="let categoria of categorias" [value]="categoria.id">
+                                        {{categoria.nome}}
+                                    </option>
+                                </select>
+                            </bill-input>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12 ">
+                            <div class="form-group ">
+                                <bill-input [labelTexto]="'Favorecido'" [required]=true>
+                                    <input type="text " class="form-control" formControlName="estabelecimento" placeholder="Estabelecimento" value="Chet ">
+                                </bill-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12 ">
+                            <bill-input [labelTexto]="'Responsável'" [required]=true>
+                                <input type="text" class="form-control" formControlName="responsavel">
+                            </bill-input>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-6 pr-1 ">
+                            <bill-input [labelTexto]="'Data'" [required]=true>
+                                <p-calendar inputStyleClass="form-control" dataType="string" formControlName="data" dateFormat="dd/mm/yy" [locale]="ptBR"></p-calendar>
+                            </bill-input>
+                        </div>
+                        <div class="col-md-6 pl-1 ">
+                            <bill-input [labelTexto]="'Valor'" [required]=true>
+                                <input class="form-control" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName="valor" />
+                            </bill-input>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-6 pr-1 ">
+                            <bill-input [labelTexto]="'Num. parcelas'" [required]=true>
+                                <input type="number" class="form-control" formControlName="quantidadeParcelas" min="1">
+                            </bill-input>
+                        </div>
+                        <div class="col-md-6 pl-1 ">
+                            <bill-input [labelTexto]="'Parcela'" [required]=true>
+                                <input type="number" class="form-control" formControlName="parcela" min="1">
+                            </bill-input>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12 ">
+                            <div class="form-group ">
+                                <label>Observação</label>
+                                <textarea class="form-control textarea" formControlName="observacao"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" [disabled]="!resourceForm.valid" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

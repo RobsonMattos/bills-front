@@ -1,0 +1,8 @@
+.required:after {
+    color: red;
+    content: " *";
+}
+
+label {
+    font-size: 13px;
+}

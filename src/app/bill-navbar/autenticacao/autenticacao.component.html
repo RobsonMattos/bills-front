@@ -1,0 +1,28 @@
+<div>
+    <div *ngIf="!isLoggedIn$; else anonymousUser" class="topbar-item profile-item"><a href="#"><span class="profile-image-wrapper"><img alt="mirage-layout" src="../../../assets/images/avatar-eklund.png"></span><span class="profile-info-wrapper"><h3>Robson Mattos</h3><span>Administrador</span></span></a>
+        <ul class="profile-item-submenu fadeInDown">
+            <li class="profile-submenu-header">
+                <div class="performance"><span>Weekly Performance</span><img alt="mirage-layout" src="../../../assets/images/asset-bars.svg"></div>
+                <div class="profile"><img alt="mirage-layout" src="../../../assets/images/avatar-eklund.png" width="40">
+                    <h1>Robson Mattos</h1><span>Design</span></div>
+            </li>
+            <li class="layout-submenu-item"><i class="fa fa-list icon icon-1"></i>
+                <div class="menu-text">
+                    <p>Tasks</p><span>3 open issues</span></div><i class="fa fa-angle-right"></i></li>
+            <li class="layout-submenu-item"><i class="fa fa-shopping-cart icon icon-2"></i>
+                <div class="menu-text">
+                    <p>Payments</p><span>24 new</span></div><i class="fa fa-angle-right"></i></li>
+            <li class="layout-submenu-item"><i class="fa fa-users icon icon-3"></i>
+                <div class="menu-text">
+                    <p>Clients</p><span>+80%</span></div><i class="fa fa-angle-right"></i></li>
+            <li class="layout-submenu-footer"><button class="signout-button">Sign Out</button><button class="buy-mirage-button">Buy Mirage</button></li>
+        </ul>
+    </div>
+    <ng-template #anonymousUser>
+        <div class="topbar-item profile-item">
+            <a href="#" routerLink="/login"><span class="profile-image-wrapper">
+          <i class="fa fa-user-circle-o fa-2x"></i></span>
+            <span class="profile-info-wrapper"><h3 style="color: #49688e;">Logar</h3></span></a>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,62 @@
+.navbar-brand {
+    margin-left: 30px;
+}
+
+.navbar-collapse {
+    margin-left: 80px;
+}
+
+.navbar {
+    background: linear-gradient(-206deg, #4b6cb7 5%, #182848 100%);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-item:hover {
+    background-color: #23252A;
+}
+
+.nav-item {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+
+/* ------------- */
+
+.layout-topbar {
+    display: flex;
+    position: relative;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    height: 50px;
+    width: auto;
+    background-color: #eceff400;
+    border-radius: 18px;
+}
+
+.layout-topbar .layout-topbar-wrapper {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    height: auto!important;
+    padding: 0 0!important;
+}
+
+.layout-topbar-right {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}

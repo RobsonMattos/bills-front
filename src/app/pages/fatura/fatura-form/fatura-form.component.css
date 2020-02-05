@@ -1,0 +1,18 @@
+.card label {
+    font-size: 0.8571em;
+    margin-bottom: 5px;
+    color: #9A9A9A;
+}
+
+.card .card-header:not([data-background-color]) {
+    background-color: transparent;
+}
+
+.card .card-header {
+    padding: 15px 15px 0;
+    border: 0;
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
