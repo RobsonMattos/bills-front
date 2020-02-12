@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SocialUser } from 'angularx-social-login';
 
 @Component({
   selector: 'app-bill-navbar',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bill-navbar.component.scss']
 })
 export class BillNavbarComponent implements OnInit {
+
+  @Input() user: SocialUser;
 
   constructor() { }
 

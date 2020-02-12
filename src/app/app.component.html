@@ -1,5 +1,5 @@
-<app-bill-navbar></app-bill-navbar>
+<app-bill-navbar [user]='socialuser'></app-bill-navbar>
 
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+<!-- <div class="container"> -->
+<router-outlet (activate)="onActivate($event)"></router-outlet>
+<!-- </div> -->

@@ -132,7 +132,7 @@ export class FaturaFormComponent extends BaseResourceFormComponent<Fatura> imple
     }
 
     novolancamento() {
-        console.log('novo');
+        // console.log('novo');
         this.currentActionModal = 'new'
     }
 }

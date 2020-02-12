@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" routerLink="/"><i class="fas fa-dollar-sign"></i>BILL<i class="fas fa-dollar-sign"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler pull-left" type="button" data-toggle="collapse" data-target="#navbarsBills" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse" id="navbarsBills">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="">Home</a>
@@ -19,14 +19,13 @@
                 <a class="nav-link" routerLink="/faturas">Faturas</a>
             </li>
         </ul>
-    </div>
 
-    <div class="layout-topbar">
-        <div class="layout-topbar-wrapper">
-            <div class="layout-topbar-right fadeInDown">
+        <div class="layout-topbar">
+            <div class="layout-topbar-wrapper">
+                <div class="layout-topbar-right fadeInDown">
 
-                <ul class="layout-topbar-actions">
-                    <!-- <li class="topbar-item"><a href="#"><i class="topbar-icon fa fa-inbox"></i></a>
+                    <ul class="layout-topbar-actions">
+                        <!-- <li class="topbar-item"><a href="#"><i class="topbar-icon fa fa-inbox"></i></a>
                         <ul class="fadeInDown">
                             <li class="layout-submenu-header">
                                 <h1>Messages</h1><span>Today, you have new 4 messages</span></li>
@@ -45,7 +44,7 @@
                         </ul>
                     </li> -->
 
-                    <!-- <li class="topbar-item"><a href="#"><i class="topbar-icon pi pi-envelope"></i></a>
+                        <!-- <li class="topbar-item"><a href="#"><i class="topbar-icon pi pi-envelope"></i></a>
                         <ul class="fadeInDown">
                             <li class="layout-submenu-header">
                                 <h1>Deals</h1>
@@ -76,8 +75,9 @@
                             </li>
                         </ul>
                     </li> -->
-                    <bill-autenticacao></bill-autenticacao>
-                </ul>
+                        <bill-autenticacao [user]='user'></bill-autenticacao>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

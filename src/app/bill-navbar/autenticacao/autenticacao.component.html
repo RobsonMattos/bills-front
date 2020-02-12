@@ -1,10 +1,10 @@
 <div>
-    <div *ngIf="!isLoggedIn$; else anonymousUser" class="topbar-item profile-item"><a href="#"><span class="profile-image-wrapper"><img alt="mirage-layout" src="../../../assets/images/avatar-eklund.png"></span><span class="profile-info-wrapper"><h3>Robson Mattos</h3><span>Administrador</span></span></a>
-        <ul class="profile-item-submenu fadeInDown">
+    <div class="topbar-item profile-item" *ngIf="user;else anonymousUser"><a href="#" data-toggle="modal" data-target="#modalLogin"><span class="profile-image-wrapper"><img id="loginImage" src={{user.photoUrl}} ></span><span class="profile-info-wrapper"><h3>Robson Mattos</h3><span>Administrador</span></span></a>
+        <ul id="modalLogin" class="profile-item-submenu modal-dialog fadeInDown">
             <li class="profile-submenu-header">
                 <div class="performance"><span>Weekly Performance</span><img alt="mirage-layout" src="../../../assets/images/asset-bars.svg"></div>
                 <div class="profile"><img alt="mirage-layout" src="../../../assets/images/avatar-eklund.png" width="40">
-                    <h1>Robson Mattos</h1><span>Design</span></div>
+                    <h1>{{ user.name }}</h1><span>Design</span></div>
             </li>
             <li class="layout-submenu-item"><i class="fa fa-list icon icon-1"></i>
                 <div class="menu-text">
@@ -20,7 +20,7 @@
     </div>
     <ng-template #anonymousUser>
         <div class="topbar-item profile-item">
-            <a href="#" routerLink="/login"><span class="profile-image-wrapper">
+            <a routerLink="/login"><span class="profile-image-wrapper">
           <i class="fa fa-user-circle-o fa-2x"></i></span>
             <span class="profile-info-wrapper"><h3 style="color: #49688e;">Logar</h3></span></a>
         </div>

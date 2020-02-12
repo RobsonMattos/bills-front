@@ -1,3 +1,7 @@
+.modal-backdrop {
+    z-index: -1;
+}
+
 .navbar-brand {
     margin-left: 30px;
 }
@@ -35,15 +39,14 @@
     width: auto;
     background-color: #eceff400;
     border-radius: 18px;
-}
-
-.layout-topbar .layout-topbar-wrapper {
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    height: auto!important;
-    padding: 0 0!important;
+    .layout-topbar-wrapper {
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        height: auto!important;
+        padding: 0 0!important;
+    }
 }
 
 .layout-topbar-right {
@@ -60,3 +63,10 @@
     padding: 0;
     height: 100%;
 }
+
+// /* max-width  */
+// @media screen and (max-width: 765px) {
+//     .layout-topbar {
+//         display: none;
+//     }
+// }

@@ -5,6 +5,10 @@
     padding-top: 80px;
 } */
 
+.modal-backdrop {
+    z-index: -1;
+}
+
 .ui-calendar {
     position: relative;
     display: inherit!important;

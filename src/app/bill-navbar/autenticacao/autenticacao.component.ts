@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SocialUser } from 'angularx-social-login';
 
 @Component({
   selector: 'bill-autenticacao',
@@ -8,23 +9,23 @@ import { Observable } from 'rxjs';
 })
 export class AutenticacaoComponent implements OnInit {
 
-  isLoggedIn$: boolean;
+  // isLoggedIn$: boolean;
   // isLoggedIn$: Observable<boolean>;
-  // usuario: UsuarioModel;
+  @Input() user: SocialUser;
 
   constructor() { }
 
-  get logged() {
-    // this.loginService.usuarioLogado.subscribe(
-    //   value => {
-    //     this.usuario = value;
-    //   }
-    // );
-    return this.isLoggedIn$;
-  } 
+  // get logged() {
+  //   // this.loginService.usuarioLogado.subscribe(
+  //   //   value => {
+  //   //     this.usuario = value;
+  //   //   }
+  //   // );
+  //   return this.isLoggedIn$;
+  // } 
 
   ngOnInit() {
-    this.isLoggedIn$ = true;
+    // this.isLoggedIn$ = true;
     // this.isLoggedIn$ = this.loginService.isLoggedIn;
     // this.loginService.usuarioLogado.subscribe(
     //   value => {
