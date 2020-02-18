@@ -1,102 +1,104 @@
-<!-- <p>Form Status: {{ resourceForm.value | json}}</p>
+<div class="container">
+    <!-- <p>Form Status: {{ resourceForm.value | json}}</p>
 <p>{{ resourceForm.valid }}</p> -->
 
-<form [formGroup]="resourceForm" (submit)="submitForm()">
+    <form [formGroup]="resourceForm" (submit)="submitForm()">
 
-    <div class='row'>
-        <!-- Mes -->
-        <div class='col'>
-            <div class="form-group">
-                <label for="mes">Mês</label>
-                <select id="mes" class="form-control" formControlName="mes">
+        <div class='row'>
+            <!-- Mes -->
+            <div class='col'>
+                <div class="form-group">
+                    <label for="mes">Mês</label>
+                    <select id="mes" class="form-control" formControlName="mes">
                     <option value="" disabled>Escolha o mês</option>
                     <option *ngFor="let mes of meses" [value]= "mes">
                         {{ mes }}
                     </option>
                 </select>
-            </div>
-        </div>
-
-        <!-- Data Vencimento -->
-        <div class='col'>
-            <div class="form-group">
-                <label for="data">Vencimento</label>
-                <div>
-                    <!-- <input type="date" [value]="dataVencimento | dd/mm/yyyy" formControlName="dataVencimento" id="" class="form-control" > -->
-                    <p-calendar inputStyleClass="form-control" formControlName="dataVencimento" dataType="string" dateFormat="dd/mm/yy" [locale]="ptBR"></p-calendar>
                 </div>
             </div>
-        </div>
 
-        <!-- Data Pagamento -->
-        <div class="col">
-            <div class="form-group">
-                <label for="data">Data Pagamento</label>
-                <div>
-                    <p-calendar id="dataPagamento" inputStyleClass="form-control" formControlName="dataPagamento" dataType="string" dateFormat="dd/mm/yy" [locale]="ptBR"></p-calendar>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <!-- Valor -->
-            <div class="form-group">
-                <label for="data">Valor</label>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">R$</span>
+            <!-- Data Vencimento -->
+            <div class='col'>
+                <div class="form-group">
+                    <label for="data">Vencimento</label>
+                    <div>
+                        <!-- <input type="date" [value]="dataVencimento | dd/mm/yyyy" formControlName="dataVencimento" id="" class="form-control"> -->
+                        <p-calendar inputStyleClass="form-control" formControlName="dataVencimento" dataType="string" dateFormat="dd/mm/yy" [locale]="ptBR"></p-calendar>
                     </div>
-                    <input class="form-control" currencyMask formControlName="valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                </div>
+            </div>
+
+            <!-- Data Pagamento -->
+            <div class="col">
+                <div class="form-group">
+                    <label for="data">Data Pagamento</label>
+                    <div>
+                        <p-calendar id="dataPagamento" inputStyleClass="form-control" formControlName="dataPagamento" dataType="string" dateFormat="dd/mm/yy" [locale]="ptBR"></p-calendar>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <!-- Valor -->
+                <div class="form-group">
+                    <label for="data">Valor</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+                        <input class="form-control" currencyMask formControlName="valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Observação -->
-    <div class="form-group">
-        <label for="observacao">Observação</label>
-        <textarea class="form-control" id="observacao" rows="3"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary float-right" [disabled]="!resourceForm.valid">Salvar</button>
-</form>
+        <!-- Observação -->
+        <div class="form-group">
+            <label for="observacao">Observação</label>
+            <textarea class="form-control" id="observacao" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary float-right" [disabled]="!resourceForm.valid">Salvar</button>
+    </form>
 
-<!-- Botão para acionar modal -->
-<button type="button" (click)='novolancamento()' class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
+    <!-- Botão para acionar modal -->
+    <button type="button" (click)='novolancamento()' class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
     Novo lançamento
 </button>
-<hr>
+    <hr>
 
-<p-table [value]="lancamentos" [paginator]="true" [rows]="10" [responsive]="true" autoLayout="true">
-    <ng-template pTemplate="header">
-        <tr>
-            <th scope="col" [pSortableColumn]="'estabelecimento'">Estabelecimento
-                <p-sortIcon [field]="'estabelecimento'"></p-sortIcon>
-            </th>
-            <th scope="col" [pSortableColumn]="'data'">Data
-                <p-sortIcon [field]="'data'"></p-sortIcon>
-            </th>
-            <th scope="col" [pSortableColumn]="'valor'">Valor
-                <p-sortIcon [field]="'valor'"></p-sortIcon>
-            </th>
-            <th scope="col">Ações</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-lancamento>
-        <tr>
-            <td>
-                {{ lancamento.estabelecimento }} <br>
-                <small>{{ lancamento.categoria.nome }}</small>
-            </td>
-            <td>{{ lancamento.data }}</td>
-            <td class="debito"><strong>{{ lancamento.valor | currency:'BRL':true }}</strong></td>
-            <td>
-                <button (click)="updateLancamento(lancamento)" class="btn btn-outline-info mr-2" data-toggle="modal" data-target="#modalExemplo"><i
+    <p-table [value]="lancamentos" [paginator]="true" [rows]="10" [responsive]="true" autoLayout="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th scope="col" [pSortableColumn]="'estabelecimento'">Estabelecimento
+                    <p-sortIcon [field]="'estabelecimento'"></p-sortIcon>
+                </th>
+                <th scope="col" [pSortableColumn]="'data'">Data
+                    <p-sortIcon [field]="'data'"></p-sortIcon>
+                </th>
+                <th scope="col" [pSortableColumn]="'valor'">Valor
+                    <p-sortIcon [field]="'valor'"></p-sortIcon>
+                </th>
+                <th scope="col">Ações</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lancamento>
+            <tr>
+                <td>
+                    {{ lancamento.estabelecimento }} <br>
+                    <small>{{ lancamento.categoria.nome }}</small>
+                </td>
+                <td>{{ lancamento.data }}</td>
+                <td class="debito"><strong>{{ lancamento.valor | currency:'BRL':true }}</strong></td>
+                <td>
+                    <button (click)="updateLancamento(lancamento)" class="btn btn-outline-info mr-2" data-toggle="modal" data-target="#modalExemplo"><i
                         class="far fa-save"></i></button>
-                <button (click)="deleteResource(lancamento)" class="btn btn-outline-info"><i
+                    <button (click)="deleteResource(lancamento)" class="btn btn-outline-info"><i
                         class="far fa-trash-alt"></i></button>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 
-<!-- Modal -->
-<bill-fatura-form-modal [currentAction]="currentActionModal" (fechar)='loadLancamentos()' [lancamento]="lancamento" [fatura]="fatura"></bill-fatura-form-modal>
+    <!-- Modal -->
+    <bill-fatura-form-modal [currentAction]="currentActionModal" (fechar)='loadLancamentos()' [lancamento]="lancamento" [fatura]="fatura"></bill-fatura-form-modal>
+</div>

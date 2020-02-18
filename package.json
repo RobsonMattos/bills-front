@@ -24,6 +24,7 @@
     "@angular/router": "~7.0.0",
     "angular-font-awesome": "^3.1.2",
     "angular-intl": "^2.0.1",
+    "angularx-social-login": "^2.2.1",
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
     "firebase": "^5.7.3",

@@ -1,26 +1,18 @@
 <div>
-    <div class="topbar-item profile-item" *ngIf="user;else anonymousUser"><a href="#" data-toggle="modal" data-target="#modalLogin"><span class="profile-image-wrapper"><img id="loginImage" src={{user.photoUrl}} ></span><span class="profile-info-wrapper"><h3>Robson Mattos</h3><span>Administrador</span></span></a>
-        <ul id="modalLogin" class="profile-item-submenu modal-dialog fadeInDown">
-            <li class="profile-submenu-header">
-                <div class="performance"><span>Weekly Performance</span><img alt="mirage-layout" src="../../../assets/images/asset-bars.svg"></div>
-                <div class="profile"><img alt="mirage-layout" src="../../../assets/images/avatar-eklund.png" width="40">
-                    <h1>{{ user.name }}</h1><span>Design</span></div>
-            </li>
-            <li class="layout-submenu-item"><i class="fa fa-list icon icon-1"></i>
-                <div class="menu-text">
-                    <p>Tasks</p><span>3 open issues</span></div><i class="fa fa-angle-right"></i></li>
-            <li class="layout-submenu-item"><i class="fa fa-shopping-cart icon icon-2"></i>
-                <div class="menu-text">
-                    <p>Payments</p><span>24 new</span></div><i class="fa fa-angle-right"></i></li>
-            <li class="layout-submenu-item"><i class="fa fa-users icon icon-3"></i>
-                <div class="menu-text">
-                    <p>Clients</p><span>+80%</span></div><i class="fa fa-angle-right"></i></li>
-            <li class="layout-submenu-footer"><button class="signout-button">Sign Out</button><button class="buy-mirage-button">Buy Mirage</button></li>
-        </ul>
+    <div class="topbar-item profile-item fadeInDown" *ngIf="user;else anonymousUser">
+        <a href="#" data-toggle="dropdown" data-target="#modalLogin">
+            <span class="profile-image-wrapper"><img id="loginImage" src={{user.photoUrl}} ></span>
+            <span class="profile-info-wrapper"><h3>Robson Mattos</h3><a href="#">Administrador</a></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" (click)="logout()" href="#">Logout</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
     </div>
     <ng-template #anonymousUser>
         <div class="topbar-item profile-item">
-            <a routerLink="/login"><span class="profile-image-wrapper">
+            <a routerLink="/login-full"><span class="profile-image-wrapper">
           <i class="fa fa-user-circle-o fa-2x"></i></span>
             <span class="profile-info-wrapper"><h3 style="color: #49688e;">Logar</h3></span></a>
         </div>

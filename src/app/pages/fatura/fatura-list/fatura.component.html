@@ -1,28 +1,30 @@
-<bill-page-header page-title="Faturas" button-text="+ Nova Fatura" button-link="new" button-class="btn-success">
-</bill-page-header>
+<div class="container">
+    <bill-page-header page-title="Faturas" button-text="+ Nova Fatura" button-link="new" button-class="btn-success">
+    </bill-page-header>
 
 
-<div class="row mt-4">
-    <div *ngFor="let fatura of faturas" class="col-lg-4 col-md-6 col-sm-6">
-        <div class="card card-stats">
-            <div class="card-body ">
-                <div class="row">
-                    <div class="col-5 col-md-4">
-                        <div class="icon-big text-center icon-warning"><i class="fas fa-coins"></i></div>
-                    </div>
-                    <div class="col-7 col-md-8">
-                        <div class="numbers">
-                            <p class="card-category">{{ fatura.mes }}</p>
-                            <p class="card-title">{{ fatura.valor | currency:'BRL':true}}</p>
+    <div class="row mt-4">
+        <div *ngFor="let fatura of faturas" class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning"><i class="fas fa-coins"></i></div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">{{ fatura.mes }}</p>
+                                <p class="card-title">{{ fatura.valor | currency:'BRL':true}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-footer row">
-                <!-- <hr> -->
-                <div class="stats">Pagamento: {{ fatura.pagamento }} </div>
-                <div class="col justify-content-end" style="text-align: right;">
-                    <a class="btn btn-outline-primary" [routerLink]="[fatura.id, 'edit']"><span>Detalhe da fatura</span></a>
+                <div class="card-footer row">
+                    <!-- <hr> -->
+                    <div class="stats">Pagamento: {{ fatura.pagamento }} </div>
+                    <div class="col justify-content-end" style="text-align: right;">
+                        <a class="btn btn-outline-primary" [routerLink]="[fatura.id, 'edit']"><span>Detalhe da fatura</span></a>
+                    </div>
                 </div>
             </div>
         </div>

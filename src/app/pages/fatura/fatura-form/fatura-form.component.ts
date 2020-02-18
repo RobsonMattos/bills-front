@@ -18,7 +18,7 @@ export class FaturaFormComponent extends BaseResourceFormComponent<Fatura> imple
     showModal: boolean = false;
     lancamento: Lancamento;
     lancamentos: Lancamento[] = [];
-    fatura: Fatura;
+    fatura: Fatura = new Fatura();
     @ViewChild('dataPagamento') dataPagamentoField: ElementRef = null;
     
     ptBR = {
@@ -99,8 +99,9 @@ export class FaturaFormComponent extends BaseResourceFormComponent<Fatura> imple
             this.route.paramMap.pipe(
                 switchMap(params => this.faturaService.getById(+params.get("id")))
             ).subscribe(
-                (fatura) => {
-                    this.fatura = fatura;
+                (val) => {
+                    this.fatura = val;
+                    console.log(this.fatura);
                     this.resourceForm.patchValue(this.fatura); // binds loaded resource data to resourceForm
                     this.loadLancamentos();
                 },

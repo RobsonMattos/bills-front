@@ -1,11 +1,11 @@
-<bill-page-header page-title="Categorias" button-text="+ Nova Categoria" button-link="new" button-class="btn-success">
+<bill-page-header style="padding-top: 100px;" page-title="Categorias" button-text="+ Nova Categoria" button-link="new" button-class="btn-success">
 </bill-page-header>
 
 <p-table [value]="categorias" [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
         <tr>
-            <th scope="col" [pSortableColumn]="'estabelecimento'">Nome<p-sortIcon
-                    [field]="'estabelecimento'"></p-sortIcon>
+            <th scope="col" [pSortableColumn]="'estabelecimento'">Nome
+                <p-sortIcon [field]="'estabelecimento'"></p-sortIcon>
             </th>
             <th scope="col">Ações</th>
         </tr>

@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
 
       if(user) {
         this.loggedIn.emit(true)
+        this.close();
       } else {
         this.loggedIn.emit(false)
       }

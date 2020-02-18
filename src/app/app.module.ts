@@ -30,6 +30,7 @@ registerLocaleData(ptBr)
 
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { LoginFullComponent } from './bill-navbar/autenticacao/login-full/login-full.component';
  
  
 let config = new AuthServiceConfig([
@@ -53,7 +54,8 @@ export function provideConfig() {
         BillNavbarComponent,
         HomeComponent,
         AutenticacaoComponent,
-        LoginComponent
+        LoginComponent,
+        LoginFullComponent
     ],
     imports: [
         BrowserModule,
