@@ -22,7 +22,8 @@ export class AutenticacaoComponent implements OnInit {
   logout() {
     console.log('logoff');
     this.authService.signOut();
-    localStorage.removeItem('usuario');
+    // localStorage.removeItem('usuario');
+    sessionStorage.removeItem('usuario');
     this.user = null;
     this.router.navigate(['']);
   }

@@ -29,7 +29,8 @@ export class LoginFullComponent implements OnInit {
     this.authService.authState.subscribe((user) => {
       this.user = user;
 
-      localStorage.setItem('usuario', JSON.stringify(this.user));
+      // localStorage.setItem('usuario', JSON.stringify(this.user));
+      sessionStorage.setItem('usuario', JSON.stringify(this.user));
 
       if(user) {
         this.loggedIn.emit(true)

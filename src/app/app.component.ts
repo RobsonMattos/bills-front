@@ -13,10 +13,11 @@ export class AppComponent {
   socialuser: SocialUser;
 
   onActivate(componentReference) {
-    console.log(componentReference)
+    // console.log(componentReference)
     // componentReference.anyFunction();
 
-    this.socialuser = JSON.parse(localStorage.getItem('usuario'));
-    console.log(this.socialuser);
+    // this.socialuser = JSON.parse(localStorage.getItem('usuario'));
+    this.socialuser = JSON.parse(sessionStorage.getItem('usuario'));
+    // console.log(this.socialuser);
  }
 }

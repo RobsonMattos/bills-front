@@ -11,7 +11,7 @@ import { map, catchError, retry } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class FaturaService {
-
+    
     url = `${environment.API_PATH}/faturas`;
 
     constructor(

@@ -3,10 +3,11 @@ import { BaseResourceFormComponent } from 'src/app/shared/components/base-resour
 import { Fatura } from '../fatura.model';
 import { FaturaService } from '../fatura.service';
 import { LancamentoService } from '../../lancamento/lancamento.service';
-import { Validators } from '@angular/forms';
+import { Validators, FormGroup } from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
 import toastr from "toastr";
 import { Lancamento } from '../../lancamento/lancamento.model';
+import { Responsavel } from '../responsavel.model';
 
 @Component({
     selector: 'bill-fatura-form',
@@ -21,6 +22,24 @@ export class FaturaFormComponent extends BaseResourceFormComponent<Fatura> imple
     fatura: Fatura = new Fatura();
     @ViewChild('dataPagamento') dataPagamentoField: ElementRef = null;
     
+    data = {
+        labels: ['A','B','C'],
+        datasets: [
+            {
+                data: this.lancamentos,
+                backgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                ]
+            }]    
+        };
+
     ptBR = {
         firstDayOfWeek: 0,
         dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
@@ -101,7 +120,6 @@ export class FaturaFormComponent extends BaseResourceFormComponent<Fatura> imple
             ).subscribe(
                 (val) => {
                     this.fatura = val;
-                    console.log(this.fatura);
                     this.resourceForm.patchValue(this.fatura); // binds loaded resource data to resourceForm
                     this.loadLancamentos();
                 },
@@ -133,7 +151,7 @@ export class FaturaFormComponent extends BaseResourceFormComponent<Fatura> imple
     }
 
     novolancamento() {
-        // console.log('novo');
         this.currentActionModal = 'new'
     }
+
 }

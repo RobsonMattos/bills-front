@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FaturaService } from '../fatura.service';
 import { Fatura } from '../fatura.model';
 import { Router } from '@angular/router';
+import { ResponsavelService } from '../responsavel.service';
+import { Responsavel } from '../responsavel.model';
+import toastr from "toastr";
 
 @Component({
     selector: 'bill-fatura',
@@ -11,32 +14,11 @@ import { Router } from '@angular/router';
 export class FaturaComponent implements OnInit {
 
     faturas: Fatura[] = []
-
-    // faturas = [
-    //     {
-    //       vencimento: '17/01/2019',
-    //       pagamento: '17/01/2019',
-    //       valor: 1100.19
-    //     },
-    //     {
-    //       vencimento: '17/02/2019',
-    //       pagamento: '17/01/2019',
-    //       valor: 2200.22
-    //     },
-    //     {
-    //       vencimento: '17/03/2019',
-    //       pagamento: '17/01/2019',
-    //       valor: 5300
-    //     },
-    //     {
-    //       vencimento: '',
-    //       pagamento: '17/01/2019',
-    //       valor: 400
-    //     },
-    //   ]
+    responsaveis: Responsavel[];
 
     constructor(
         private faturaService: FaturaService,
+        private responsavelService: ResponsavelService,
         private router: Router) { }
 
     ngOnInit() {
@@ -53,4 +35,11 @@ export class FaturaComponent implements OnInit {
         this.router.navigate(['lancamentos']);
     }
 
+    getResponsaveis(fatura) {
+
+        this.responsavelService.getPorFatura(fatura.id).subscribe(
+            resources => this.responsaveis = resources.sort((a, b) => b.id - a.id),
+            error => toastr.error(`Erro ao carregar a lista de lançamentos: ${error}`)
+        )
+    }
 }

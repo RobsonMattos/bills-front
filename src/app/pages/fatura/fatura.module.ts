@@ -17,6 +17,7 @@ import { FaturaService } from './fatura.service';
 import { FaturaFormComponent } from './fatura-form/fatura-form.component';
 import { FaturaFormModalComponent } from './fatura-form/fatura-form-modal/fatura-form-modal.component';
 import { CalendarModule } from 'primeng/calendar';
+import {ChartModule} from 'primeng/chart';
 
 registerLocaleData(ptBr)
 
@@ -34,7 +35,8 @@ registerLocaleData(ptBr)
         ReactiveFormsModule,
         SharedModule,
         CurrencyMaskModule,
-        CalendarModule
+        CalendarModule,
+        ChartModule
     ],
     providers: [{ provide: LOCALE_ID, useValue: 'pt' }, FaturaService]
 })

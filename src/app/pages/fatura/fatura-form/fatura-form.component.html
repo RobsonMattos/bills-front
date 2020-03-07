@@ -6,7 +6,7 @@
 
         <div class='row'>
             <!-- Mes -->
-            <div class='col'>
+            <div class='col-lg'>
                 <div class="form-group">
                     <label for="mes">Mês</label>
                     <select id="mes" class="form-control" formControlName="mes">
@@ -19,7 +19,7 @@
             </div>
 
             <!-- Data Vencimento -->
-            <div class='col'>
+            <div class='col-lg'>
                 <div class="form-group">
                     <label for="data">Vencimento</label>
                     <div>
@@ -30,7 +30,7 @@
             </div>
 
             <!-- Data Pagamento -->
-            <div class="col">
+            <div class="col-lg">
                 <div class="form-group">
                     <label for="data">Data Pagamento</label>
                     <div>
@@ -38,15 +38,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg">
                 <!-- Valor -->
                 <div class="form-group">
-                    <label for="data">Valor</label>
+                    <label for="data"><strong>Valor</strong></label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">R$</span>
                         </div>
-                        <input class="form-control" currencyMask formControlName="valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+                        <input class="form-control" currencyMask formControlName="valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" disabled/>
                     </div>
                 </div>
             </div>
@@ -64,8 +64,9 @@
     <button type="button" (click)='novolancamento()' class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
     Novo lançamento
 </button>
+    <!-- <hr> -->
+    <!-- <p-chart type="doughnut" [data]="lancamentos" [options]="chartOptions"></p-chart> -->
     <hr>
-
     <p-table [value]="lancamentos" [paginator]="true" [rows]="10" [responsive]="true" autoLayout="true">
         <ng-template pTemplate="header">
             <tr>
