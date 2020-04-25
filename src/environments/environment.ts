@@ -5,7 +5,8 @@
 export const environment = {
     production: false,
     // API_PATH: 'http://localhost:5000'
-    API_PATH: 'http://localhost:8080/bills'
+    API_PATH: 'http://bills-api.sa-east-1.elasticbeanstalk.com'
+    // API_PATH: 'http://localhost:8081/bills'
     // API_PATH: 'http://localhost:3000/bills'
 };
 
